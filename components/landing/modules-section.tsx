@@ -7,18 +7,18 @@ export function ModulesSection() {
     <section id="modules" className="py-20 md:py-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 gs-fade-up">Trois modules intégrés</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 gs-fade-up">Quatre modules intégrés</h2>
           <p className="text-lg text-muted max-w-2xl mx-auto gs-fade-up">
             Couvrir tous les besoins administratifs et pédagogiques
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 gs-stagger-up">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
           {modules.map((mod) => (
             <div
               key={mod.id}
               className={clsx(
-                "section-shell p-8 hover:border-white/20 transition bg-linear-to-br",
+                "gs-module-card section-shell p-8 hover:border-white/20 transition bg-linear-to-br",
                 mod.color,
                 { "ring-1 ring-fuchsia-400/40": mod.id === "tresorerie" },
               )}
