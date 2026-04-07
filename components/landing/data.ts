@@ -6,6 +6,7 @@ import {
   HandCoins,
   ReceiptText,
   School,
+  ShieldUser,
   UserCheck,
 } from "lucide-react";
 
@@ -92,6 +93,7 @@ export const featureColumns: FeatureColumn[] = [
     points: [
       "Cycles trimestre et semestre en parallele",
       "Gestion des series et coefficients configurable",
+      "Authentification a deux facteurs (2FA) pour les comptes sensibles",
       "Validation finale securisee des moyennes",
     ],
   },
@@ -164,7 +166,7 @@ export const faqs: FaqItem[] = [
   {
     id: "faq-securite",
     q: "La solution est-elle securisee ?",
-    a: "Ecolio suit une approche defense-in-depth: permissions par role, tracabilite des actions et base PostgreSQL robuste.",
+    a: "Ecolio suit une approche defense-in-depth: permissions par role, authentification a deux facteurs (2FA), tracabilite des actions et base PostgreSQL robuste.",
   },
 ];
 
@@ -209,6 +211,20 @@ export const modules: ModuleItem[] = [
       "Plans de paiement en tranches datees",
       "Bourses et remises appliquees automatiquement",
       "Journal quotidien de caisse pour comptable",
+    ],
+  },
+  {
+    id: "gestion-utilisateurs",
+    title: "Gestion Utilisateurs",
+    icon: ShieldUser,
+    subtitle: "Acces et securite",
+    color: "from-blue-500/20 to-cyan-500/10",
+    iconColor: "text-blue-500",
+    iconBg: "bg-blue-500/15",
+    points: [
+      "Gestion granulaire avec des roles et permissions",
+      "Gestion de profil utilisateur et parametres du compte",
+      "2FA configurable",
     ],
   },
 ];
