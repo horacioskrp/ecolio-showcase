@@ -14,9 +14,9 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ecolio | Système scolaire souverain",
+  title: "Dalibi | Logiciel de gestion scolaire tout-en-un",
   description:
-    "Ecolio digitalise la vie scolaire, la pédagogie et la trésorerie pour les écoles du Togo.",
+    "Dalibi est le logiciel tout-en-un pour moderniser votre établissement : inscriptions, notes, bulletins, trésorerie, présences et portail parents & élèves. Conçu pour les écoles d'Afrique.",
 };
 
 export default function RootLayout({
