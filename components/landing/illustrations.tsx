@@ -215,6 +215,171 @@ export function StackIllustration({ className = "" }: { className?: string }) {
   );
 }
 
+/** Finance : pile de pièces + reçu à code-barres + tendance. */
+export function FinanceIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 400 320" className={className} role="img" aria-label="Trésorerie et écolage" fill="none">
+      <defs>
+        <linearGradient id="fin-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--brand-2)" />
+          <stop offset="100%" stopColor="var(--brand-1)" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="200" cy="160" r="140" fill="var(--brand-3)" fillOpacity="0.08" />
+
+      {/* pile de pièces */}
+      <g>
+        {[214, 186, 158, 130].map((cy, i) => (
+          <g key={cy}>
+            <ellipse cx="104" cy={cy + 14} rx="46" ry="15" fill="url(#fin-grad)" />
+            <ellipse cx="104" cy={cy + 14} rx="46" ry="15" fill="black" fillOpacity={i === 0 ? 0 : 0.06} />
+          </g>
+        ))}
+        <ellipse cx="104" cy="144" rx="46" ry="15" fill="url(#fin-grad)" />
+        <ellipse cx="104" cy="144" rx="46" ry="15" fill="white" fillOpacity="0.18" />
+        <text x="104" y="150" textAnchor="middle" fontSize="16" fontWeight="800" fill="white">F</text>
+      </g>
+
+      {/* reçu */}
+      <g>
+        <path d="M196 70 H316 V236 l-15 -10 -15 10 -15 -10 -15 10 -15 -10 -15 10 -15 -10 V70 Z" fill="var(--card)" stroke="var(--border)" strokeWidth="1.5" />
+        <rect x="214" y="92" width="64" height="8" rx="4" fill="url(#fin-grad)" />
+        <rect x="214" y="112" width="84" height="6" rx="3" fill="var(--border)" />
+        <rect x="214" y="126" width="70" height="6" rx="3" fill="var(--border)" />
+        {/* code-barres */}
+        <g fill="var(--foreground)">
+          {[0, 6, 10, 18, 22, 30, 36, 42, 50, 58, 64, 72].map((dx, i) => (
+            <rect key={dx} x={216 + dx} y="150" width={i % 3 === 0 ? 4 : 2} height="34" />
+          ))}
+        </g>
+        <rect x="214" y="196" width="40" height="8" rx="4" fill="url(#fin-grad)" />
+      </g>
+
+      {/* tendance */}
+      <g transform="translate(300 40)">
+        <circle cx="14" cy="14" r="24" fill="url(#fin-grad)" fillOpacity="0.14" />
+        <path d="M2 22 L12 12 L18 18 L28 6" stroke="url(#fin-grad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M28 6 h-7 m7 0 v7" stroke="url(#fin-grad)" strokeWidth="3" strokeLinecap="round" fill="none" />
+      </g>
+    </svg>
+  );
+}
+
+/** Fonctionnalités : fenêtre avec tuiles de modules, en blanc (pour fond bleu). */
+export function FeaturesIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 360 300" className={className} role="img" aria-label="Fonctionnalités" fill="none">
+      <defs>
+        <linearGradient id="feat-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--brand-2)" />
+          <stop offset="100%" stopColor="var(--brand-1)" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="180" cy="150" r="120" fill="white" fillOpacity="0.06" />
+      <circle cx="180" cy="150" r="80" fill="white" fillOpacity="0.06" />
+
+      {/* fenêtre */}
+      <rect x="64" y="62" width="232" height="176" rx="16" fill="white" />
+      <rect x="64" y="62" width="232" height="30" rx="16" fill="#eef2f7" />
+      <circle cx="82" cy="77" r="3.5" fill="url(#feat-grad)" />
+      <circle cx="94" cy="77" r="3.5" fill="#cbd5e1" />
+
+      {/* tuiles de modules */}
+      {[0, 1, 2, 3, 4, 5].map((i) => {
+        const col = i % 3;
+        const row = Math.floor(i / 3);
+        const x = 84 + col * 68;
+        const y = 108 + row * 60;
+        return (
+          <g key={i}>
+            <rect x={x} y={y} width="52" height="44" rx="9" fill="url(#feat-grad)" fillOpacity="0.14" />
+            <rect x={x + 12} y={y + 11} width="20" height="20" rx="5" fill="url(#feat-grad)" />
+            <rect x={x + 10} y={y + 35} width="32" height="4" rx="2" fill="#cbd5e1" />
+          </g>
+        );
+      })}
+
+      {/* accents */}
+      <g transform="translate(286 56)" fill="white">
+        <path d="M0 -12 L3 -3 12 0 3 3 0 12 -3 3 -12 0 -3 -3 Z" />
+      </g>
+      <circle cx="70" cy="56" r="4" fill="white" fillOpacity="0.8" />
+      <circle cx="300" cy="210" r="5" fill="white" fillOpacity="0.7" />
+    </svg>
+  );
+}
+
+/** Tarifs : cadenas ouvert (libre) + étiquette, en blanc (pour fond bleu). */
+export function PricingIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 360 300" className={className} role="img" aria-label="Open source et gratuit" fill="none">
+      <circle cx="180" cy="150" r="120" fill="white" fillOpacity="0.06" />
+      <circle cx="180" cy="150" r="80" fill="white" fillOpacity="0.06" />
+
+      {/* cadenas ouvert */}
+      <g>
+        {/* anse ouverte */}
+        <path d="M118 132 V104 a34 34 0 0 1 64 -14" stroke="white" strokeWidth="12" strokeLinecap="round" fill="none" />
+        {/* corps */}
+        <rect x="96" y="132" width="108" height="86" rx="16" fill="white" />
+        <circle cx="150" cy="168" r="12" fill="var(--brand-1)" />
+        <rect x="145" y="176" width="10" height="22" rx="5" fill="var(--brand-1)" />
+      </g>
+
+      {/* étiquette "libre" */}
+      <g transform="rotate(-12 250 168)">
+        <path d="M222 138 H300 a8 8 0 0 1 8 8 V190 a8 8 0 0 1 -8 8 H222 L200 168 Z" fill="white" />
+        <circle cx="224" cy="168" r="6" fill="var(--brand-1)" />
+        <rect x="240" y="156" width="52" height="9" rx="4.5" fill="var(--brand-2)" />
+        <rect x="240" y="174" width="38" height="7" rx="3.5" fill="var(--brand-3)" />
+      </g>
+
+      {/* étincelles */}
+      <g transform="translate(286 70)" fill="white">
+        <path d="M0 -11 L3 -3 11 0 3 3 0 11 -3 3 -11 0 -3 -3 Z" />
+      </g>
+      <circle cx="74" cy="80" r="4" fill="white" fillOpacity="0.8" />
+      <circle cx="292" cy="216" r="5" fill="white" fillOpacity="0.7" />
+    </svg>
+  );
+}
+
+/** Documentation : page de doc + signet + badge code, en blanc (pour fond bleu). */
+export function DocsIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 360 300" className={className} role="img" aria-label="Documentation" fill="none">
+      <circle cx="180" cy="150" r="120" fill="white" fillOpacity="0.06" />
+      <circle cx="180" cy="150" r="80" fill="white" fillOpacity="0.06" />
+
+      {/* page arrière */}
+      <rect x="106" y="64" width="150" height="180" rx="12" fill="white" fillOpacity="0.55" transform="rotate(6 181 154)" />
+
+      {/* page avant */}
+      <g>
+        <rect x="92" y="58" width="150" height="184" rx="12" fill="white" />
+        <rect x="112" y="84" width="72" height="9" rx="4.5" fill="var(--brand-1)" />
+        {[108, 124, 140, 156, 172, 188].map((y) => (
+          <rect key={y} x="112" y={y} width={y % 32 === 12 ? 90 : 110} height="6" rx="3" fill="#cbd5e1" />
+        ))}
+        {/* signet */}
+        <path d="M210 58 v44 l-12 -9 -12 9 V58 Z" fill="var(--brand-1)" />
+      </g>
+
+      {/* badge code */}
+      <g transform="translate(232 176)">
+        <circle cx="0" cy="0" r="28" fill="var(--brand-1)" />
+        <path d="M-8 -7 L-15 0 L-8 7 M8 -7 L15 0 L8 7" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </g>
+
+      {/* accents */}
+      <g transform="translate(96 56)" fill="white"><path d="M0 -10 L3 -3 10 0 3 3 0 10 -3 3 -10 0 -3 -3 Z" /></g>
+      <circle cx="276" cy="92" r="4" fill="white" fillOpacity="0.8" />
+    </svg>
+  );
+}
+
 /** FAQ : bulles de discussion + points d'interrogation, en blanc (pour fond bleu). */
 export function FaqIllustration({ className = "" }: { className?: string }) {
   return (
@@ -244,6 +409,159 @@ export function FaqIllustration({ className = "" }: { className?: string }) {
       <text x="44" y="220" fontSize="26" fontWeight="800" fill="white" fillOpacity="0.6">?</text>
       <circle cx="300" cy="120" r="5" fill="white" fillOpacity="0.8" />
       <circle cx="70" cy="56" r="4" fill="white" fillOpacity="0.7" />
+    </svg>
+  );
+}
+
+/** Numérisation : un ordinateur affichant le tableau de bord, école passée au digital. */
+export function DigitalizationIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 400 330" className={className} role="img" aria-label="École numérique" fill="none">
+      <defs>
+        <linearGradient id="dg-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--brand-2)" />
+          <stop offset="100%" stopColor="var(--brand-1)" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="200" cy="160" r="140" fill="var(--brand-3)" fillOpacity="0.08" />
+
+      {/* écran */}
+      <rect x="70" y="56" width="260" height="162" rx="14" fill="var(--card)" stroke="var(--border)" strokeWidth="1.5" />
+      <rect x="70" y="56" width="260" height="28" rx="14" fill="var(--surface)" />
+      <circle cx="88" cy="70" r="3.5" fill="var(--border)" />
+      <circle cx="100" cy="70" r="3.5" fill="var(--border)" />
+
+      {/* KPIs */}
+      {[94, 168, 242].map((x, i) => (
+        <g key={x}>
+          <rect x={x} y="100" width="64" height="34" rx="7" fill="url(#dg-grad)" fillOpacity={0.12} />
+          <rect x={x + 8} y="108" width="30" height="6" rx="3" fill="url(#dg-grad)" />
+          <rect x={x + 8} y="120" width={20 + i * 6} height="6" rx="3" fill="var(--border)" />
+        </g>
+      ))}
+
+      {/* mini graphe */}
+      <rect x="94" y="146" width="212" height="56" rx="8" fill="var(--surface)" />
+      <polyline points="106,188 138,176 170,182 202,162 234,168 266,148 294,154" fill="none" stroke="url(#dg-grad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+
+      {/* pied d'ordinateur */}
+      <path d="M150 218 H250 L268 244 H132 Z" fill="var(--surface)" stroke="var(--border)" strokeWidth="1.5" />
+
+      {/* badge diplôme */}
+      <g transform="translate(40 78)">
+        <circle cx="0" cy="0" r="26" fill="var(--card)" stroke="var(--border)" strokeWidth="1.5" />
+        <path d="M-14 -2 L0 -9 14 -2 0 5 Z" fill="url(#dg-grad)" />
+        <path d="M-7 1 v7 c0 4 14 4 14 0 v-7" stroke="var(--brand-1)" strokeWidth="2.5" fill="none" />
+      </g>
+
+      {/* badge validé */}
+      <g transform="translate(338 196)">
+        <circle cx="0" cy="0" r="24" fill="url(#dg-grad)" />
+        <path d="M-9 0 l6 6 12 -14" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </g>
+
+      {/* étincelle */}
+      <g transform="translate(330 64)" fill="url(#dg-grad)">
+        <path d="M0 -12 L3 -3 12 0 3 3 0 12 -3 3 -12 0 -3 -3 Z" />
+      </g>
+    </svg>
+  );
+}
+
+/** Automatisation : document → engrenages → sortie PDF, avec éclair. */
+export function AutomationIllustration({ className = "" }: { className?: string }) {
+  const gear = (cx: number, cy: number, r: number, teeth = 8) => (
+    <g>
+      {Array.from({ length: teeth }).map((_, i) => (
+        <rect
+          key={i}
+          x={cx - 3.5}
+          y={cy - r - 9}
+          width="7"
+          height="13"
+          rx="2"
+          fill="url(#auto-grad)"
+          transform={`rotate(${(360 / teeth) * i} ${cx} ${cy})`}
+        />
+      ))}
+      <circle cx={cx} cy={cy} r={r} fill="url(#auto-grad)" />
+      <circle cx={cx} cy={cy} r={r * 0.42} fill="var(--card)" />
+    </g>
+  );
+
+  return (
+    <svg viewBox="0 0 400 320" className={className} role="img" aria-label="Automatisation des processus" fill="none">
+      <defs>
+        <linearGradient id="auto-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--brand-2)" />
+          <stop offset="100%" stopColor="var(--brand-1)" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="200" cy="160" r="138" fill="var(--brand-3)" fillOpacity="0.08" />
+
+      {/* document source */}
+      <g>
+        <rect x="40" y="96" width="92" height="120" rx="12" fill="var(--card)" stroke="var(--border)" strokeWidth="1.5" />
+        <rect x="56" y="116" width="46" height="7" rx="3.5" fill="url(#auto-grad)" />
+        {[134, 150, 166, 182].map((y) => (
+          <rect key={y} x="56" y={y} width="60" height="6" rx="3" fill="var(--border)" />
+        ))}
+      </g>
+
+      {/* flux */}
+      <path d="M140 156 H176" stroke="var(--brand-1)" strokeWidth="2.5" strokeDasharray="3 6" strokeLinecap="round" />
+      <path d="M250 156 H286" stroke="var(--brand-1)" strokeWidth="2.5" strokeDasharray="3 6" strokeLinecap="round" />
+
+      {/* engrenages */}
+      {gear(204, 142, 30, 9)}
+      {gear(238, 188, 20, 8)}
+
+      {/* sortie PDF */}
+      <g>
+        <rect x="294" y="100" width="86" height="112" rx="12" fill="var(--card)" stroke="var(--border)" strokeWidth="1.5" />
+        <rect x="310" y="118" width="40" height="6" rx="3" fill="var(--border)" />
+        <rect x="310" y="132" width="54" height="6" rx="3" fill="var(--border)" />
+        <rect x="310" y="180" width="40" height="18" rx="5" fill="url(#auto-grad)" />
+        <text x="330" y="193" textAnchor="middle" fontSize="10" fontWeight="700" fill="white">PDF</text>
+      </g>
+
+      {/* éclair "en un clic" */}
+      <g transform="translate(176 60)">
+        <circle cx="14" cy="14" r="22" fill="url(#auto-grad)" />
+        <path d="M16 2 L6 17 h8 l-3 13 13 -18 h-8 z" fill="white" />
+      </g>
+    </svg>
+  );
+}
+
+/** Contact : enveloppe + avion en papier, en blanc (pour fond bleu). */
+export function ContactIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 360 300" className={className} role="img" aria-label="Nous contacter" fill="none">
+      <circle cx="180" cy="150" r="120" fill="white" fillOpacity="0.06" />
+      <circle cx="180" cy="150" r="78" fill="white" fillOpacity="0.06" />
+
+      {/* enveloppe */}
+      <g>
+        <rect x="78" y="108" width="156" height="108" rx="14" fill="white" />
+        <path d="M78 122 L156 172 L234 122" stroke="var(--brand-1)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <rect x="98" y="190" width="64" height="7" rx="3.5" fill="var(--brand-3)" />
+      </g>
+
+      {/* avion en papier */}
+      <g transform="translate(214 70)">
+        <path d="M0 40 L72 0 L40 72 L30 44 Z" fill="white" />
+        <path d="M40 72 L30 44 L72 0 Z" fill="white" fillOpacity="0.7" />
+        <path d="M30 44 L52 24" stroke="var(--brand-1)" strokeWidth="3" strokeLinecap="round" />
+      </g>
+      {/* trajectoire */}
+      <path d="M214 150 C240 150 250 96 286 78" stroke="white" strokeOpacity="0.55" strokeWidth="3" strokeDasharray="2 8" strokeLinecap="round" fill="none" />
+
+      {/* points */}
+      <circle cx="70" cy="92" r="5" fill="white" fillOpacity="0.8" />
+      <circle cx="296" cy="206" r="4" fill="white" fillOpacity="0.7" />
     </svg>
   );
 }

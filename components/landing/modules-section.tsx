@@ -1,4 +1,5 @@
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import { modules } from "./data";
 
 // Dégradés vifs par module (icône illustrée distincte).
@@ -50,6 +51,12 @@ export function ModulesSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link href="/fonctionnalites" className="btn btn-secondary">
+            Voir toutes les fonctionnalités <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

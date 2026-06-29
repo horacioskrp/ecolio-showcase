@@ -5,7 +5,7 @@ import { faqs } from "@/components/landing/data";
 import { FaqIllustration } from "@/components/landing/illustrations";
 import { LandingFooter } from "@/components/landing/landing-footer";
 import { PageHero } from "@/components/landing/page-hero";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SiteHeader } from "@/components/landing/site-header";
 
 export const metadata: Metadata = {
   title: "FAQ | Dalibi — Logiciel de gestion scolaire",
@@ -16,28 +16,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      {/* En-tête */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-          <Link href="/" className="flex items-center shrink-0" aria-label="Dalibi">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/dalibi.svg" alt="Dalibi" className="h-7 w-auto block dark:hidden" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/dalibi-blanc.svg" alt="Dalibi" className="h-7 w-auto hidden dark:block" />
-          </Link>
-          <nav className="hidden md:flex items-center gap-7">
-            <Link href="/#modules" className="text-sm font-medium text-muted hover:text-foreground transition">Fonctionnalités</Link>
-            <Link href="/#tarifs" className="text-sm font-medium text-muted hover:text-foreground transition">Tarifs</Link>
-            <Link href="/#open-source" className="text-sm font-medium text-muted hover:text-foreground transition">Open source</Link>
-          </nav>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <ThemeToggle />
-            <Link href="/#contact" className="hidden sm:inline-flex btn btn-primary text-sm py-2.5">
-              Demander une démo <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero bleu réutilisable */}
       <PageHero
@@ -47,7 +26,7 @@ export default function FaqPage() {
           <>
             Tout ce qu&apos;il faut savoir sur Dalibi : tarifs, déploiement, fonctionnalités,
             sécurité et open source. Une autre question ?{" "}
-            <Link href="/#contact" className="underline underline-offset-2 font-medium hover:text-white">
+            <Link href="/contact" className="underline underline-offset-2 font-medium hover:text-white">
               Contactez-nous
             </Link>
             .
@@ -77,7 +56,7 @@ export default function FaqPage() {
             <p className="text-muted mb-6">
               Notre équipe vous répond et vous propose une démonstration adaptée à votre établissement.
             </p>
-            <Link href="/#contact" className="btn btn-primary">
+            <Link href="/contact" className="btn btn-primary">
               Demander une démo <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

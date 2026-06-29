@@ -28,11 +28,6 @@ import {
   Zap,
 } from "lucide-react";
 
-export type NavLink = {
-  label: string;
-  href: string;
-};
-
 export type FeatureColumn = {
   title: string;
   subtitle: string;
@@ -40,17 +35,6 @@ export type FeatureColumn = {
   points: string[];
 };
 
-export type PricingPlan = {
-  name: string;
-  price: string;
-  priceSuffix?: string;
-  caption: string;
-  cta: string;
-  featured: boolean;
-  icon: LucideIcon;
-  inheritNote?: string;
-  points: string[];
-};
 
 export type FaqItem = {
   id: string;
@@ -73,13 +57,6 @@ export type QuickStat = {
   value: string;
   label: string;
 };
-
-export const navLinks: NavLink[] = [
-  { label: "Fonctionnalités", href: "#modules" },
-  { label: "Pour qui", href: "#pour-qui" },
-  { label: "Tarifs", href: "#tarifs" },
-  { label: "Documentation", href: "/documentation" },
-];
 
 export type AudienceCard = {
   id: string;
@@ -183,53 +160,6 @@ export const featureColumns: FeatureColumn[] = [
       "Recus et documents PDF generes en un clic",
       "Exports PDF (effectifs, planning) et journaux financiers",
       "Sauvegardes JSON/SQL planifiees, stockage local ou cloud",
-    ],
-  },
-];
-
-export const pricingPlans: PricingPlan[] = [
-  {
-    name: "Starter",
-    price: "0",
-    priceSuffix: "FCFA",
-    caption: "Open source, auto-hébergé",
-    cta: "Commencer gratuitement",
-    featured: false,
-    icon: Zap,
-    points: [
-      "Installation locale ou Docker",
-      "Tous les modules (élèves, bulletins, trésorerie, présences)",
-      "Portail parents & élèves inclus",
-      "Support communautaire GitHub",
-    ],
-  },
-  {
-    name: "Établissement",
-    price: "Sur devis",
-    caption: "Accompagnement au déploiement",
-    cta: "Demander une démo",
-    featured: true,
-    icon: Building2,
-    inheritNote: "Tout le plan Starter, plus :",
-    points: [
-      "Migration des données de l'école",
-      "Configuration complète de la trésorerie",
-      "Formation des équipes",
-      "Support prioritaire de lancement",
-    ],
-  },
-  {
-    name: "Réseau",
-    price: "Sur devis",
-    caption: "Pour les groupes scolaires",
-    cta: "Parler au projet",
-    featured: false,
-    icon: Users,
-    inheritNote: "Tout le plan Établissement, plus :",
-    points: [
-      "Multi-établissements centralisé",
-      "Consolidation régionale des données",
-      "Accompagnement et documentation dédiés",
     ],
   },
 ];
