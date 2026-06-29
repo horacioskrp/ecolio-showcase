@@ -5,8 +5,8 @@ const columns = [
   {
     title: "Produit",
     links: [
-      { label: "Fonctionnalités", href: "/#modules" },
-      { label: "Tarifs", href: "/#tarifs" },
+      { label: "Fonctionnalités", href: "/fonctionnalites" },
+      { label: "Tarifs", href: "/tarifs" },
       { label: "Sécurité", href: "/#securite" },
       { label: "Open source", href: "/#open-source" },
     ],
@@ -24,6 +24,7 @@ const columns = [
     links: [
       { label: "Documentation", href: "/documentation" },
       { label: "FAQ", href: "/faq" },
+      { label: "Contact", href: "/contact" },
       { label: "API Reference", href: "/documentation#api" },
       { label: "GitHub", href: "https://github.com/horacioskrp/dalibi" },
     ],
