@@ -413,6 +413,64 @@ export function FaqIllustration({ className = "" }: { className?: string }) {
   );
 }
 
+/** Statistiques : tableau de bord analytique (barres + camembert + courbe). */
+export function StatsIllustration({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 400 330" className={className} role="img" aria-label="Statistiques et pilotage" fill="none">
+      <defs>
+        <linearGradient id="stat-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--brand-2)" />
+          <stop offset="100%" stopColor="var(--brand-1)" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="200" cy="165" r="140" fill="var(--brand-3)" fillOpacity="0.08" />
+
+      {/* fenêtre */}
+      <rect x="46" y="52" width="308" height="226" rx="16" fill="var(--card)" stroke="var(--border)" strokeWidth="1.5" />
+      <rect x="46" y="52" width="308" height="30" rx="16" fill="var(--surface)" />
+      <circle cx="64" cy="67" r="3.5" fill="var(--brand-3)" />
+      <circle cx="76" cy="67" r="3.5" fill="var(--border)" />
+
+      {/* KPIs */}
+      {[
+        { x: 66, w: 74, label: 20 },
+        { x: 150, w: 74, label: 30 },
+        { x: 234, w: 74, label: 24 },
+      ].map((k, i) => (
+        <g key={i}>
+          <rect x={k.x} y="96" width={k.w} height="34" rx="7" fill="url(#stat-grad)" fillOpacity="0.10" />
+          <rect x={k.x + 10} y="104" width="34" height="7" rx="3.5" fill="url(#stat-grad)" />
+          <rect x={k.x + 10} y="116" width={k.label} height="6" rx="3" fill="var(--border)" />
+        </g>
+      ))}
+
+      {/* barres */}
+      <g>
+        {[48, 70, 54, 88, 66].map((h, i) => (
+          <rect key={i} x={70 + i * 30} y={244 - h} width="18" height={h} rx="4" fill="url(#stat-grad)" opacity={0.55 + i * 0.09} />
+        ))}
+        {/* courbe de tendance */}
+        <polyline points="79,180 109,168 139,176 169,150 199,158" fill="none" stroke="var(--brand-1)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="199" cy="158" r="3.5" fill="var(--brand-1)" />
+      </g>
+
+      {/* camembert */}
+      <g transform="translate(288 195)">
+        <circle cx="0" cy="0" r="42" fill="var(--surface)" />
+        <path d="M0 0 L0 -42 A42 42 0 0 1 36 22 Z" fill="url(#stat-grad)" />
+        <path d="M0 0 L36 22 A42 42 0 0 1 -30 30 Z" fill="var(--brand-3)" />
+        <circle cx="0" cy="0" r="20" fill="var(--card)" />
+      </g>
+
+      {/* étincelle */}
+      <g transform="translate(322 60)" fill="url(#stat-grad)">
+        <path d="M0 -11 L3 -3 11 0 3 3 0 11 -3 3 -11 0 -3 -3 Z" />
+      </g>
+    </svg>
+  );
+}
+
 /** Numérisation : un ordinateur affichant le tableau de bord, école passée au digital. */
 export function DigitalizationIllustration({ className = "" }: { className?: string }) {
   return (

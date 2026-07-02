@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
-  Archive, ArrowRight, Building2, Calendar, CalendarDays, Check,
+  Archive, ArrowRight, BarChart3, Building2, Calendar, CalendarDays, Check,
   ClipboardList, CloudUpload, DatabaseBackup, FileBadge, Gauge, GraduationCap,
   LayoutGrid, School, Server, ShieldCheck, UserCheck, Users, Wallet,
 } from "lucide-react";
@@ -11,7 +11,7 @@ import { PageHero } from "@/components/landing/page-hero";
 import { SiteHeader } from "@/components/landing/site-header";
 import {
   DigitalizationIllustration, FeaturesIllustration, FinanceIllustration,
-  NetworkIllustration, PedagogieIllustration, ShieldIllustration,
+  NetworkIllustration, PedagogieIllustration, ShieldIllustration, StatsIllustration,
 } from "@/components/landing/illustrations";
 
 export const metadata: Metadata = {
@@ -44,6 +44,22 @@ const editorials: Editorial[] = [
       "Filtrage par année académique",
     ],
     illustration: <DigitalizationIllustration className="w-full max-w-md mx-auto h-auto" />,
+  },
+  {
+    icon: BarChart3,
+    eyebrow: "Statistiques & pilotage",
+    title: "Décidez avec des statistiques, pas à l'aveugle",
+    intro:
+      "Un menu Statistiques complet, filtrable et exportable, aligné sur les indicateurs de l'annuaire statistique (MEPSTA).",
+    points: [
+      "Parité (IPS), redoublement, abandon et sur-âge (retard scolaire)",
+      "Recouvrement de l'écolage et répartition Mobile Money",
+      "Réussite interne et examens officiels (CEPD, BEPC, BAC)",
+      "Ratio élèves/enseignant, assiduité et absentéisme",
+      "Comparaisons pluriannuelles et origine par préfecture",
+      "Export PDF (en-tête d'école) et Excel de chaque section",
+    ],
+    illustration: <StatsIllustration className="w-full max-w-md mx-auto h-auto" />,
   },
   {
     icon: GraduationCap,
@@ -111,6 +127,11 @@ const editorials: Editorial[] = [
 type FeatureCard = { icon: LucideIcon; title: string; points: string[] };
 
 const moreFeatures: FeatureCard[] = [
+  {
+    icon: BarChart3,
+    title: "Statistiques & pilotage",
+    points: ["7 tableaux : parité, réussite, finances…", "Filtres année / classe / sexe", "Export PDF & Excel"],
+  },
   {
     icon: School,
     title: "Élèves & inscriptions",

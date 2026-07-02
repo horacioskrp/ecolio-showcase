@@ -12,6 +12,7 @@ import { ModulesSection } from "@/components/landing/modules-section";
 import { OpenSourceSection } from "@/components/landing/open-source-section";
 import { SecuritySection } from "@/components/landing/security-section";
 import { SiteHeader } from "@/components/landing/site-header";
+import { StatisticsSection } from "@/components/landing/statistics-section";
 import { StatsSection } from "@/components/landing/stats-section";
 import { TechSection } from "@/components/landing/tech-section";
 import { useLandingAnimations } from "@/components/landing/use-landing-animations";
@@ -28,6 +29,7 @@ export function LandingPage() {
       <AutomationSection />
       <AudiencesSection />
       <ModulesSection />
+      <StatisticsSection />
       <CapabilitiesSection />
       <SecuritySection />
       <StatsSection />
